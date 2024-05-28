@@ -1,0 +1,22 @@
+<app-header></app-header>
+<div class="home">
+    <h1>Welcome to Nagarro Ecommerce</h1>
+    <!-- <p>*Please login to view more details about product</p> -->
+    <ng-container *ngIf="!isLoggedIn">
+        <p>*Please login to view more details about product</p>
+    </ng-container>
+    <div class="search-box">
+        <select [(ngModel)]="searchOption">
+            <option value="name">Product Name</option>
+            <option value="brand">Brand</option>
+            <option value="code">Product Code</option>
+        </select>
+        &nbsp;
+        <input type="text" placeholder="Search for a product" [(ngModel)]="searchQuery">
+        <button (click)="searchProducts()">Search</button>
+    </div>
+
+    <app-product-details [openProductDetails]="openProductDetails"></app-product-details>
+</div>
+
+<app-footer></app-footer>

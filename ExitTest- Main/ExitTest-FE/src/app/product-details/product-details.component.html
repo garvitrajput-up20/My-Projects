@@ -1,0 +1,51 @@
+<div class="price-filter" *ngIf="isLoggedIn">
+    <label for="minPrice">Min Price:</label>
+    <input type="number" id="minPrice" [(ngModel)]="minPrice" (input)="applyPriceFilter()" placeholder="Min Price">
+    <label for="maxPrice">Max Price:</label>
+    <input type="number" id="maxPrice" [(ngModel)]="maxPrice" (input)="applyPriceFilter()" placeholder="Max Price">
+</div>
+<div class="brand-filter" *ngIf="isLoggedIn">
+    <label for="brand">Brand:</label>
+    <select id="brand" [(ngModel)]="selectedBrand" (change)="applyBrandFilter()">
+        <option value="">All</option>
+        <option *ngFor="let brand of uniqueBrands" [value]="brand">{{ brand }}</option>
+    </select>
+</div>
+<div *ngIf="!filteredProduct" class="product-list">
+    <!-- Display all products as cards -->
+    <div class="product-card" *ngFor="let product of product">
+        <img [src]="getProductImageUrl(product.image)" alt="Product Image">
+        <h3>{{ product.productName }}</h3>
+        Brand: <h4>{{product.brand}}</h4>
+        <!-- Display other product details as needed -->
+        <ng-container *ngIf="isLoggedIn">
+            <p>{{ product.description }}</p>
+            <p>Product Code: {{product.productCode}}</p>
+            <p>Price: <b> {{ product.price | currency:'INR' }} </b> </p>
+            <a (click)="openProductDetails(product)">View Details</a>
+        </ng-container>
+    </div>
+    <!-- Display "No products found" message if no products are available -->
+    <div *ngIf="product.length === 0">
+        <p>No products found.</p>
+    </div>
+</div>
+<div *ngIf="filteredProduct" class="product-list">
+    <!-- Display all products as cards -->
+    <div class="product-card" *ngFor="let product of filteredProducts">
+        <img [src]="getProductImageUrl(product.image)" alt="Product Image">
+        <h3>{{ product.productName }}</h3>
+        Brand: <h4>{{product.brand}}</h4>
+        <!-- Display other product details as needed -->
+        <ng-container *ngIf="isLoggedIn">
+            <p>{{ product.description }}</p>
+            <p>Product Code: {{product.productCode}}</p>
+            <p>Price: <b> {{ product.price | currency:'INR' }} </b> </p>
+            <a class="popup" (click)="openProductDetails(product)">View Details</a>
+        </ng-container>
+    </div>
+    <!-- Display "No products found" message if no products are available -->
+    <div *ngIf="product.length === 0">
+        <p>No products found.</p>
+    </div>
+</div>

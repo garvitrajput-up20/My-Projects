@@ -1,0 +1,108 @@
+body {
+  background-color: whitesmoke;
+}
+
+header {
+  width: 100%;
+  background-color: #51d18d;
+  padding: 2px 0px 2px 0px;
+  margin-bottom: 10px;
+  border: 2px solid green;
+}
+
+header h2 {
+  color: white;
+  text-align: center;
+  align-items: center;
+}
+
+#left-section {
+  margin: 20px;
+}
+
+span {
+  color: red;
+}
+
+#form {
+  margin-left: 100px;
+}
+
+#form label{
+  color: grey;
+  margin-right: 20px;
+  margin-top: 10px;
+}
+
+
+
+.user-form {
+  display: block;
+  padding:4px 2px;
+  border:solid 1px #aacfe4;
+  width:200px;
+  border-radius: 5px;
+  margin-top: 10px;
+}
+
+.vertical {
+  margin-top: 10px;
+  border-left: 3px solid #51d18d;
+  height: 600px;
+  position:absolute;
+  left: 50%;
+}
+
+#right-section {
+  margin-top: 10px;
+}
+
+#right-section h3 {
+  text-align: center;
+}
+
+#student-table {
+  border: 1px solid #728230;
+  margin-bottom: 100px;
+}
+
+.table {
+  border: 2 solid black;
+}
+.table th {
+  background-color: olivedrab;
+}
+
+footer {
+  width: 100%;
+  background-color: #51d18d;
+  border: 2px solid green;
+}
+
+footer p {
+  text-align: center;
+  color: white;
+}
+
+
+.new-row {
+  animation: fade-in 1s ease-in-out;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@media only screen and (max-width: 769px) {
+  #vr {
+      display:none;
+      visibility:hidden;
+  }
+  #form {
+      margin-left: 20px;
+  }
+}

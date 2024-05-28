@@ -1,0 +1,26 @@
+<app-header></app-header>
+
+<div class="search-results">
+    <h2>Search Results</h2>
+    <p>Showing results for {{ searchParam }}: {{ searchQuery }}</p>
+
+    <div *ngIf="products.length > 0; else noResults">
+        <div class="product-grid">
+            <mat-card *ngFor="let product of products" class="product-card">
+                <img [src]="getProductImageUrl(product.image)" alt="Product Image">
+                <mat-card-content>
+                    <h3>{{ product.productName }}</h3>
+                    <p>{{ product.description }}</p>
+                    <p>Brand: {{product.brand}}</p>
+                    <p>Price: {{ product.price | currency:'INR' }}</p>
+                </mat-card-content>
+            </mat-card>
+        </div>
+    </div>
+
+    <ng-template #noResults>
+        <p>No results found.</p>
+    </ng-template>
+</div>
+
+<app-footer></app-footer>

@@ -1,0 +1,49 @@
+<div class="product-dialog-content">
+    <h2 mat-dialog-title><strong>{{ product.productName }}</strong></h2>
+    <div class="image-container">
+        <img [src]="getProductImageUrl(product.image)" alt="Product Image">
+    </div>
+    <div mat-dialog-content>
+        <table>
+            <tr>
+                <td><strong>ID:</strong></td>
+                <td>{{ product.productId }}</td>
+            </tr>
+            <tr>
+                <td><strong>Name:</strong></td>
+                <td>{{ product.productName }}</td>
+            </tr>
+            <tr>
+                <td><strong>Description:</strong></td>
+                <td>{{ product.description }}</td>
+            </tr>
+            <tr>
+                <td><strong>Product Code:</strong></td>
+                <td>{{ product.productCode }}</td>
+            </tr>
+            <tr>
+                <td><strong>Price:</strong></td>
+                <td>{{ product.price | currency:'INR'}}</td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="pincode">
+                        <strong>Pincode:</strong>
+                    </label>
+                </td>
+                <td>
+                    <input type="number" required placeholder="Enter Pincode" [(ngModel)]="pincode" pattern="[0-9]{6}"
+                        maxlength="6">
+                    <button mat-button color="primary" (click)="checkDelivery()">Check Delivery</button>
+                </td>
+            </tr>
+
+        </table>
+        <!-- Add more product details as needed -->
+    </div>
+    <div mat-dialog-actions>
+
+        <!-- Button to submit the pincode -->
+        <button mat-button color="accent" (click)="closeDialog()">Close</button>
+    </div>
+</div>

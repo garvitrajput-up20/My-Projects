@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Enrollment Form</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"></script>
+  <script src="index.js"></script>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h2>Student Enrollment Form</h2>
+  </header>
+  <main class="container">
+    <div class="row">
+      <section class="col" id="left-section">
+        <div id="form">
+          <form action="" id="enrollmentForm">
+            <table>
+              <tr>
+                <td><label for="name">Name<span>*</span></label></td>
+                <td><input type="text" name="name" class="user-form" id="name" required></td>
+              </tr>
+              <tr>
+                <td><label for="email">Email<span>*</span></label></td>
+                <td><input type="email" name="email" class="user-form" id="email" required></td>
+              </tr>
+              <tr>
+                <td><label for="website">Website<span>*</span></label></td>
+                <td><input type="url" name="website" class="user-form" id="website" required></td>
+              </tr>
+              <tr>
+                <td><label for="image-link">Image Link<span>*</span></label></td>
+                <td><input type="url" name="imageLink" class="user-form" id="imageLink" required>
+                </td>
+              </tr>
+              <tr>
+                <td><label for="gender">Gender<span>*</span></label></td>
+                <td>
+                  <input type="radio" name="gender" id="male" value="Male" required />
+                  <label for="male" style="margin-top: 2px;">Male</label><br>
+                  <input type="radio" name="gender" id="female" value="Female" required />
+                  <label for="female" style="margin-top: 2px;">Female</label>
+                </td>
+              </tr>
+              <tr>
+                <td><label for="skills">Skills </label></td>
+                <td>
+                  <input type="checkbox" name="skills" id="Java" value="Java" />
+                  <label for="Java">Java</label>
+                  <input type="checkbox" name="skills" id="HTML" value="HTML" />
+                  <label for="HTML">HTML</label>
+                  <input type="checkbox" name="skills" id="CSS" value="CSS" />
+                  <label for="CSS">CSS</label>
+                </td>
+              </tr>
+            </table>
+            <button type="submit" class="btn btn-primary mt-4 mx-2" onclick="addData()">Enroll Student</button>
+            <button type="reset" name="reset" id="reset" class="btn btn-danger mt-4 mx-4">Clear</button>
+          </form>
+        </div>
+      </section>
+      <section class="col-1 " id="vr">
+        <div class="vertical"></div>
+      </section>
+      <section class="col" id="right-section">
+        <h3>Enrolled Students</h3>
+        <table class="table table-striped table-hover table-bordered table-responsive" id="student-table">
+          <tr>
+            <th style="width:80%">Description</th>
+            <th>Image</th>
+          </tr>
+         <tbody id="dataTable"></tbody>
+        </table>
+      </section>
+    </div>
+  </main>
+  <footer class="fixed-bottom pt-2">
+    <p>Copyright 2023 | Garvit Rajput | garvit.rajput@nagarro.com</p>
+  </footer>
+</body>
+</html>

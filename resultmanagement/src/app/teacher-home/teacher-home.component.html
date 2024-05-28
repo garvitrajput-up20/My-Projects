@@ -1,0 +1,59 @@
+<header>
+    <h1>Result Management System</h1>
+</header>
+<ul class="link-list">
+    <li><a (click)="ViewStudents()">View Students</a></li>
+    <li><a (click)="AddForm()">Add Students</a></li>
+    <li><a (click)="logout()">Logout</a></li>
+</ul>
+<div class="form-container" *ngIf="!viewStudent">
+    <h2>Add Student</h2>
+    <form #addStudentForm="ngForm" (ngSubmit)="addStudent(addStudentForm.value)">
+        <div class="form-field">
+            <label for="rollNo">Roll No.</label>
+            <input type="text" ngModel id="rollNo" name="rollNo" required>
+        </div>
+        <div class="form-field">
+            <label for="name">Name</label>
+            <input type="text" ngModel id="name" name="name" required>
+        </div>
+        <div class="form-field">
+            <label for="dob">Date of Birth</label>
+            <input type="date" ngModel id="dob" name="dob" required>
+        </div>
+        <div class="form-field">
+            <label for="score">Score</label>
+            <input type="text" ngModel id="score" name="score" required>
+        </div>
+        <div class="form-field">
+            <input type="submit" value="Add Student">
+        </div>
+    </form>
+</div>
+
+<div class="display" *ngIf="viewStudent">
+    <table>
+        <thead>
+            <tr>
+                <th>Roll Number</th>
+                <th>Name</th>
+                <th>DOB</th>
+                <th>Score</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let s of fetchStudent">
+                <td>{{s.rollNo}}</td>
+                <td>{{s.name}}</td>
+                <td>{{s.dob}}</td>
+                <td>{{s.score}}</td>
+                <td><button routerLink="/edit-student/{{s.id}}">Edit</button></td>
+                <td><button (click)="delete(s.id)">Delete</button></td>
+            </tr>
+            <!-- Add more rows as needed -->
+        </tbody>
+    </table>
+</div>
+
+

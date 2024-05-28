@@ -1,0 +1,17 @@
+<header>
+    <h1>Result Management System</h1>
+</header>
+
+<div class="login-container">
+    <h2>Student Login</h2>
+    <form #studentLoginForm="ngForm" (ngSubmit)="login(studentLoginForm.value)">
+        <label for="username">Roll Number</label>
+        <input type="text" id="username" ngModel name="rollNo" placeholder="Enter your Roll Number">
+
+        <label for="password">DOB</label>
+        <input type="date" id="dob" ngModel name="dob" placeholder="Enter your DOB">
+
+        <input type="submit" value="Login">
+    </form>
+    <button onclick="location.href=''">Back to Home</button>
+</div>

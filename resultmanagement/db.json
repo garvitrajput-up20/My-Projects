@@ -1,0 +1,18 @@
+{
+  "teacher": [
+    {
+      "username": "garvit",
+      "password": "123",
+      "id": 1
+    }
+  ],
+  "student": [
+    {
+      "rollNo": "12",
+      "name": "Garvit Rajput",
+      "dob": "2001-08-15",
+      "score": "700",
+      "id": 1
+    }
+  ]
+}

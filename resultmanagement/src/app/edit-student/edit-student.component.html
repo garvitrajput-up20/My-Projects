@@ -1,0 +1,27 @@
+<header>
+    <h1>Result Management System</h1>
+</header>
+<div class="form-container">
+    <h2>Edit Student</h2>
+    <form #editStudentForm="ngForm" (ngSubmit)="editStudent()">
+        <div class="form-field">
+            <label for="rollNo">Roll No.</label>
+            <input type="text" [(ngModel)]="studentData.rollNo" id="rollNo" name="rollNo" required>
+        </div>
+        <div class="form-field">
+            <label for="name">Name</label>
+            <input type="text" [(ngModel)]="studentData.name" id="name" name="name" required>
+        </div>
+        <div class="form-field">
+            <label for="dob">Date of Birth</label>
+            <input type="date" [(ngModel)]="studentData.dob" id="dob" name="dob" required>
+        </div>
+        <div class="form-field">
+            <label for="score">Score</label>
+            <input type="text" [(ngModel)]="studentData.score" id="score" name="score" required>
+        </div>
+        <div class="form-field">
+            <input type="submit" value="Submit">
+        </div>
+    </form>
+</div>
