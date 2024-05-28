@@ -1,0 +1,20 @@
+package com.bank.cms.controller;
+
+import com.bank.cms.dto.ErrorResponse;
+import com.bank.cms.exceptions.CustomException;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.RestControllerAdvice;
+
+@RestControllerAdvice
+public class GlobalExceptionHandler {
+    @ExceptionHandler(CustomException.class)
+    public ResponseEntity<ErrorResponse> handleCustomException(CustomException e) {
+        return ResponseEntity.status(e.getCode())
+                .body(new ErrorResponse(
+                        e.getCode(),
+                        e.getMessage()
+                        )
+                );
+    }
+}
